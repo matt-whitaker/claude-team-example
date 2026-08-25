@@ -49,11 +49,13 @@ jobs:
       pull-requests: write
       actions: read
       id-token: write
-    uses: matt-whitaker/claude-team/.github/workflows/team.yml@mainline
+    uses: matt-whitaker/claude-team/.github/workflows/team.yml@v4
     with:
       project_owner: matt-whitaker
       project_number: "4"
       allowed_bots: ""
+      # Session-driven by default; set the repo variable CLAUDE_TEAM_DRIVER to `cascade` to opt in.
+      driver: ${{ vars.CLAUDE_TEAM_DRIVER }}
       node: false
       browser: false
     secrets: inherit
